@@ -1,114 +1,124 @@
 import streamlit as st
 import time
-import requests
 
-# --- CONFIGURATION & PERSONA ---
-st.set_page_config(page_title="MyTeacher | AI Kannada Tutor", layout="wide", initial_sidebar_state="expanded")
+# --- CONFIGURATION ---
+st.set_page_config(page_title="MyTeacher | Sovereign Edition", layout="wide")
 
 def apply_styles():
     st.markdown("""
         <style>
-        .main { background-color: #FDFCFB; }
-        .stChatMessage { border-radius: 15px; margin-bottom: 10px; }
-        .vocab-card { 
-            background-color: #FFF9C4; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border-left: 5px solid #FBC02D;
-            margin-bottom: 10px;
+        .main { background-color: #F8FAF8; }
+        .kannada-card { 
+            background-color: #FFFFFF; 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid #E0E0E0;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            font-size: 1.4rem;
+            line-height: 2.0;
+            color: #1A237E;
+            margin-bottom: 20px;
         }
-        .teacher-prompt {
-            font-style: italic;
-            color: #2E7D32;
+        /* Alar Link Card Redesign - White background, black text for clarity */
+        .vocab-item {
+            background-color: #FFFFFF;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #EEEEEE;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            color: #000000;
+        }
+        .vocab-word {
+            color: #D32F2F; /* Red accent for the word */
             font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .vocab-meaning {
+            color: #212121;
+            font-size: 1rem;
         }
         </style>
     """, unsafe_allow_html=True)
 
-# --- CORE LOGIC ---
-def process_lesson(input_data):
-    # This simulates the "Thinking" phase where Alar.ink and Gemini work together
-    # In production, this would call the APIs.
-    lesson_content = {
-        "title": "Lesson 1: Dr. Rajendra Prasad",
-        "sections": [
-            {
-                "kannada": "ಭಾರತದ ಪ್ರಥಮ ರಾಷ್ಟ್ರಪತಿಗಳಾದ ಡಾ. ರಾಜೇಂದ್ರ ಪ್ರಸಾದ್ ಅವರು ಸರಳತೆ ಮತ್ತು ಸಜ್ಜನಿಕೆಗೆ ಹೆಸರಾದವರು.",
-                "explanation": "Dr. Rajendra Prasad was India's first President. He was famous because he was very simple and a very good human being.",
-                "context": "Think of a superhero who doesn't wear a cape and is kind to everyone. That is 'Sajjanike'.",
-                "vocab": [
-                    {"word": "ಸರಳತೆ (Saralate)", "meaning": "Simplicity", "usage": "Living without showing off."},
-                    {"word": "ಸಜ್ಜನಿಕೆ (Sajjanike)", "meaning": "Gentlemanliness", "usage": "Being noble and kind."}
-                ]
-            }
-        ]
-    }
-    return lesson_content
+# Mock function for Sarvam TTS (Placeholder for actual API)
+def get_audio_placeholder():
+    return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 
-# --- UI LAYOUT ---
+# --- MOCK DATA ---
+LESSON_DATA = {
+    "title": "Lesson 1: Dr. Rajendra Prasad",
+    "content": "ಭಾರತದ ಪ್ರಥಮ ರಾಷ್ಟ್ರಪತಿಗಳಾದ ಡಾ. ರಾಜೇಂದ್ರ ಪ್ರಸಾದ್ ಅವರು ಸರಳತೆ ಮತ್ತು ಸಜ್ಜನಿಕೆಗೆ ಹೆಸರಾದವರು.",
+    "explanation": "This lesson introduces Dr. Rajendra Prasad. He was our first President and was loved for his humble nature.",
+    "vocab": [
+        {"word": "ಸರಳತೆ (Saralate)", "meaning": "Simplicity", "usage": "Living a life without luxury, even when powerful."},
+        {"word": "ಸಜ್ಜನಿಕೆ (Sajjanike)", "meaning": "Nobility", "usage": "Being a true gentleman to everyone."}
+    ]
+}
+
 def main():
     apply_styles()
     
-    with st.sidebar:
-        st.title("👨‍🏫 MyTeacher")
-        st.info("Target Audience: 10-16 Years\nDialect: Bengaluru School Standard")
-        language = st.selectbox("Explain in:", ["English", "Hindi"])
-        st.divider()
-        st.write("### 📒 Saved Word Bank")
-        st.caption("Words will appear here as you learn.")
+    # Initialize session state for logic triggers
+    if 'reflection_submitted' not in st.session_state:
+        st.session_state.reflection_submitted = False
 
-    st.title("Welcome to your Kannada Lesson")
+    st.title("👨‍🏫 MyTeacher: Sovereign Edition")
+    st.caption("Native Kannada Learning Stack (Sarvam AI + Alar.ink)")
+
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.markdown(f'<div class="kannada-card">{LESSON_DATA["content"]}</div>', unsafe_allow_html=True)
+        
+        with st.chat_message("teacher", avatar="👨‍🏫"):
+            st.write(f"**Mentor:** {LESSON_DATA['explanation']}")
+            st.audio(get_audio_placeholder())
+            st.caption("🔊 Lesson Narration (Powered by Sarvam Shunya)")
+
+    with col2:
+        st.subheader("📒 Alar Word Bank")
+        for item in LESSON_DATA["vocab"]:
+            st.markdown(f"""
+                <div class="vocab-item">
+                    <div class="vocab-word">{item['word']}</div>
+                    <div class="vocab-meaning"><b>Meaning:</b> {item['meaning']}</div>
+                    <div style='font-size: 0.9rem; color: #616161;'>{item['usage']}</div>
+                </div>
+            """, unsafe_allow_html=True)
+
+    st.divider()
     
-    # Input Area
-    input_col1, input_col2 = st.columns([2, 1])
-    with input_col1:
-        doc_input = st.file_uploader("Upload Lesson Screenshot or PDF", type=["png", "jpg", "pdf"])
-    with input_col2:
-        url_input = st.text_input("Or Paste Lesson URL")
+    # Reflection Section
+    st.subheader("🤔 Holistic Reflection")
+    st.write("If you were a leader like Rajendra Prasad, how would you stay simple?")
+    user_thought = st.text_area("Your thoughts:", placeholder="Type or speak your summary here...")
+    
+    if st.button("Submit Reflection"):
+        if user_thought.strip():
+            st.session_state.reflection_submitted = True
+        else:
+            st.warning("Please share your thoughts before submitting!")
 
-    if st.button("Start Learning with MyTeacher"):
-        if doc_input or url_input:
-            lesson = process_lesson(None)
-            
-            st.divider()
-            st.header(lesson["title"])
-            
-            # Classroom View
-            col_left, col_right = st.columns([3, 2])
-            
-            with col_left:
-                for idx, section in enumerate(lesson["sections"]):
-                    st.subheader(f"Paragraph {idx+1}")
-                    st.success(section["kannada"])
-                    
-                    with st.chat_message("assistant", avatar="👨‍🏫"):
-                        st.write(f"**Teacher:** {section['explanation']}")
-                        st.write(f"💡 **Context:** {section['context']}")
-                        
-                        # Audio Placeholder (In prod: ElevenLabs API)
-                        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-                        st.caption("🔊 Paced at 0.8x with pedagogical pauses.")
-
-            with col_right:
-                st.write("### 🔍 Word Meanings (via Alar.ink)")
-                for item in section["vocab"]:
-                    st.markdown(f"""
-                        <div class="vocab-card">
-                            <b>{item['word']}</b><br>
-                            <i>{item['meaning']}</i><br>
-                            <small>{item['usage']}</small>
-                        </div>
-                    """, unsafe_allow_html=True)
-
-            # Holistic Review
-            st.divider()
-            st.write("### 🤔 Let's Reflect")
-            st.markdown('<p class="teacher-prompt">Dr. Prasad was the President but lived like a common man. Can you think of a time when you were simple even though you won a prize?</p>', unsafe_allow_html=True)
-            
-            review_input = st.text_area("Your thoughts (English/Hindi/Kannada):")
-            if st.button("Submit Reflection"):
-                st.balloons()
-                st.success("Great reflection! You are connecting with the lesson's heart.")
+    # Post-submission feedback and Vocabulary Hear-back logic
+    if st.session_state.reflection_submitted:
+        st.balloons()
+        st.success("Wonderful reflection! You've captured the heart of the lesson.")
+        
+        st.markdown("---")
+        st.subheader("🔊 Quick Word Review")
+        st.write("Listen to the key words from this lesson one more time to remember them:")
+        
+        for item in LESSON_DATA["vocab"]:
+            with st.expander(f"Hear: {item['word']}", expanded=True):
+                st.write(f"**{item['word']}** - {item['meaning']}")
+                # In production, this would be an individual API call to Sarvam TTS for the word
+                st.audio(get_audio_placeholder())
+                st.caption(f"Reviewing pronunciation: {item['word']}")
+        
+        if st.button("Start Next Lesson"):
+            st.session_state.reflection_submitted = False
+            st.rerun()
 
 if __name__ == "__main__":
     main()
