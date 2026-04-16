@@ -1,0 +1,7 @@
+streamlit
+requests
+pandas
+# For future expansion:
+# google-cloud-vision
+# openai
+# elevenlabs
