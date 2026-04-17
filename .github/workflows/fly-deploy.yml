@@ -2,16 +2,20 @@ name: Fly Deploy
 on:
   push:
     branches:
-      - flyio-new-files  # Triggers only on this specific branch
+      - flyio-new-files
 
 jobs:
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
-    concurrency: deploy-group    # Prevents concurrent deployments
+    # Add this environment variable here to fix the deprecation warning
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    
+    concurrency: deploy-group
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # This will now run on Node 24
 
       - name: Setup Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
