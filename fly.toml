@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for myteachernewapp on 2026-04-17T04:24:53Z
+# fly.toml app configuration file generated for myteachernew on 2026-04-17T13:07:06Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'myteachernewapp'
+app = 'myteachernew'
 primary_region = 'bom'
 
 [build]
