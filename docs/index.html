@@ -1,116 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="kn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Teacher | Vernacular Learning Assistant</title>
+    <title>My Teacher | Student-Focused Learning</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Warm Enterprise Palette: Ivory Background, Deep Slate Text */
-        body { font-family: 'Inter', sans-serif; background-color: #FAF8F5; color: #1E293B; }
+        :root { --ivory: #FAF8F5; --slate: #1E293B; --indigo: #4F46E5; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--slate); }
+        .kannada { font-family: 'Noto Sans Kannada', sans-serif; font-size: 24px; }
         
-        /* High-Clarity Components */
-        .enterprise-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: 0.3s ease; }
-        .enterprise-card:hover { transform: translateY(-3px); border-color: #4F46E5; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .gradient-text { background: linear-gradient(135deg, #4F46E5, #9333EA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* The "Subtle Shift" Styling */
+        .word { transition: color 0.3s ease; color: #94a3b8; /* Slate-400 */ }
+        .word.active { color: var(--indigo); font-weight: 700; }
+        
+        .enterprise-card { background: white; border: 1px solid #e2e8f0; border-radius: 24px; transition: all 0.3s ease; }
     </style>
 </head>
-<body class="selection:bg-indigo-500 selection:text-white antialiased">
+<body class="antialiased pb-32">
 
-    <nav class="fixed top-0 w-full z-50 bg-[#FAF8F5]/90 backdrop-blur-md py-4 px-8 flex justify-between items-center border-b border-slate-200">
-        <div class="text-xl font-bold tracking-tighter uppercase text-slate-900">My Teacher</div>
-        <div class="space-x-8 text-sm font-medium hidden md:flex">
-            <a href="#pedagogy" class="text-slate-700 hover:text-indigo-600 transition">Pedagogy</a>
-            <a href="#features" class="text-slate-700 hover:text-indigo-600 transition">Features</a>
-            <a href="#mission" class="text-slate-700 hover:text-indigo-600 transition">Mission</a>
-            <a href="mailto:your-email@example.com" class="text-indigo-600 border border-indigo-200 px-5 py-2 rounded-lg hover:bg-indigo-50 transition">Contact Project</a>
-        </div>
+    <nav class="p-8 flex justify-between items-center">
+        <div class="font-bold tracking-tighter uppercase">My Teacher</div>
+        <a href="https://myteachernew.fly.dev" class="text-indigo-600 font-semibold text-sm">Launch App</a>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center relative overflow-hidden bg-white">
-        <div class="absolute w-96 h-96 bg-yellow-400/10 blur-[120px] rounded-full top-1/4 -left-20"></div>
-        <div class="absolute w-96 h-96 bg-indigo-600/10 blur-[120px] rounded-full bottom-1/4 -right-20"></div>
-        
-        <div class="mb-6 px-4 py-1 rounded-full border border-yellow-500/20 bg-yellow-500/10 text-yellow-700 text-xs font-bold uppercase tracking-widest relative z-10">
-            Reimagining Vernacular Education
-        </div>
-        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight relative z-10 text-slate-950">
-            The <span class="gradient-text">Vernacular</span> <br>Learning Assistant
-        </h1>
-        <p class="max-w-3xl text-slate-600 text-lg md:text-xl leading-relaxed relative z-10">
-            A premier pedagogical tool designed to bridge the gap in Kannada-medium education. 
-            Transforming passive reading into an active, trilingual mastery experience for the next generation of learners.
-        </p>
-    </header>
+    <main class="max-w-4xl mx-auto px-6 pt-12">
+        <header class="mb-16">
+            <h1 class="text-4xl font-bold mb-4">Understand at your pace.</h1>
+            <p class="text-slate-500">A conversational approach to vernacular mastery.</p>
+        </header>
 
-    <section id="pedagogy" class="py-32 px-6 md:px-24">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-4">The Pedagogical Aspect</h2>
-            <h3 class="text-4xl md:text-5xl font-bold mb-12 text-slate-950">Beyond Literal Translation.</h3>
+        <div class="enterprise-card p-10 shadow-sm">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Current Lesson</span>
+                <div id="lesson-container" class="kannada mt-4 leading-relaxed">
+                    <span class="word" data-start="0.5">ಜ್ಞಾನವೇ</span> 
+                    <span class="word" data-start="1.2">ಶಕ್ತಿ.</span>
+                    <span class="word" data-start="2.0">ಓದುವುದಕ್ಕಿಂತ</span>
+                    <span class="word" data-start="3.0">ತಿಳಿಯುವುದು</span>
+                    <span class="word" data-start="4.0">ಮುಖ್ಯ.</span>
+                </div>
+            </div>
+
+            <button onclick="startLesson()" class="flex items-center gap-3 bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">
+                <span>🎙️</span> Hear Teacher's Explanation
+            </button>
+        </div>
+    </main>
+
+    <div id="audio-overlay" class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-6 translate-y-full transition-transform duration-500 shadow-2xl z-50">
+        <div class="max-w-4xl mx-auto flex items-center gap-6">
+            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">🔊</div>
+            <div class="flex-1">
+                <p class="text-xs font-bold text-indigo-600 uppercase">Conversational Mode</p>
+                <p class="text-sm font-medium">Teacher-Student Interaction in Progress...</p>
+                <div class="w-full bg-slate-100 h-1 mt-2 rounded-full overflow-hidden">
+                    <div id="progress" class="bg-indigo-600 h-full w-0 transition-all"></div>
+                </div>
+            </div>
+            <button onclick="stopLesson()" class="text-slate-400 hover:text-slate-600">✕</button>
+        </div>
+    </div>
+
+    <audio id="audio-engine" src="demo.mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('audio-engine');
+        const overlay = document.getElementById('audio-overlay');
+        const words = document.querySelectorAll('.word');
+        const progress = document.getElementById('progress');
+
+        function startLesson() {
+            overlay.classList.remove('translate-y-full');
+            audio.play();
+        }
+
+        function stopLesson() {
+            overlay.classList.add('translate-y-full');
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        audio.ontimeupdate = () => {
+            const currentTime = audio.currentTime;
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                    <p class="text-slate-800 text-lg leading-relaxed font-medium">
-                        Students must understand the <em>soul</em> of language.
-                    </p>
-                    <p class="text-slate-600">
-                        Our method layers authentic, verbatim readings with a teacher’s warmth. Every lesson is backed by conversational context, examples, and detailed explanations that go beyond literal definitions.
-                    </p>
-                </div>
-                <div class="enterprise-card p-10 border-l-4 border-yellow-500">
-                    <h4 class="text-xl font-bold mb-5 text-slate-950">Pedagogical Benchmarks</h4>
-                    <ul class="space-y-5 text-sm text-slate-700">
-                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Optimal Visual Clarity:</strong> 24px Noto Sans Kannada script ensures effortless character recognition.</li>
-                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Cognitive Pauses:</strong> Intentional 1-second silence padding between reading and explanation.</li>
-                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Trilingual Bridge:</strong> Acquisition of Kannada, Hindi, and English vocabulary for a multi-language foundation.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Update Progress Bar
+            progress.style.width = (currentTime / audio.duration * 100) + "%";
 
-    <section id="features" class="py-32 px-6 md:px-24 bg-white border-y border-slate-200">
-        <div class="text-center mb-20">
-            <h2 class="text-3xl md:text-5xl font-bold text-slate-950">The Student Experience</h2>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="enterprise-card p-10 feature-card">
-                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 border border-indigo-200">
-                    <span class="text-2xl">🔊</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-950">Sovereign Voice</h4>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Lesson narration in an authentic vernacular tone and diction, meticulously achieved by leveraging the <strong class="text-indigo-600">Sarvam Bulbul v2</strong> model.
-                </p>
-            </div>
+            // Word-by-Word Highlight Logic
+            words.forEach((word, index) => {
+                const startTime = parseFloat(word.dataset.start);
+                const nextWord = words[index + 1];
+                const endTime = nextWord ? parseFloat(nextWord.dataset.start) : audio.duration;
 
-            <div class="enterprise-card p-10 feature-card">
-                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 border border-yellow-200">
-                    <span class="text-2xl">📒</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-950">Alar Mastery Bank</h4>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Access an exhaustive, curated dictionary leveraging the open-source <strong class="text-yellow-700">Alar</strong> project.
-                </p>
-            </div>
-
-            <div class="enterprise-card p-10 feature-card">
-                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 border border-purple-200">
-                    <span class="text-2xl">✍️</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3 text-slate-950">Multi-Lingual Mastery</h4>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Hear clear pronunciation and meanings in English and Hindi. Words are demonstrated within simple sentences to guide context-aware construction.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-slate-200 px-6 md:px-24 text-center bg-white">
-        <p class="text-slate-500 text-sm">Vernacular Learning Assistant | Pedagogical Research & Development</p>
-    </footer>
-
+                if (currentTime >= startTime && currentTime < endTime) {
+                    word.classList.add('active');
+                } else {
+                    word.classList.remove('active');
+                }
+            });
+        };
+    </script>
 </body>
 </html>
