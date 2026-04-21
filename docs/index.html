@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Teacher | Vernacular Learning Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #F8FAFC; }
+        .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gradient-text { background: linear-gradient(135deg, #6366F1, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .feature-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-4px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+    <nav class="fixed top-0 w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-white/5">
+        <div class="text-xl font-bold tracking-tighter uppercase text-indigo-400">My Teacher</div>
+        <div class="space-x-8 text-sm font-medium hidden md:flex">
+            <a href="#pedagogy" class="hover:text-indigo-400 transition">Pedagogy</a>
+            <a href="#features" class="hover:text-indigo-400 transition">Features</a>
+            <a href="#tech" class="hover:text-indigo-400 transition">Architecture</a>
+            <a href="mailto:your-email@example.com" class="text-indigo-400 border border-indigo-400/30 px-4 py-2 rounded-lg hover:bg-indigo-400/10 transition">Contact Architect</a>
+        </div>
+    </nav>
+
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center relative overflow-hidden">
+        <div class="absolute w-96 h-96 bg-indigo-600/10 blur-[120px] rounded-full top-1/4 -left-20"></div>
+        <div class="absolute w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full bottom-1/4 -right-20"></div>
+        
+        <div class="mb-6 px-4 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest relative z-10">
+            Reimagining Vernacular Education
+        </div>
+        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight relative z-10">
+            The <span class="gradient-text">Vernacular</span> <br>Learning Assistant
+        </h1>
+        <p class="max-w-3xl text-slate-400 text-lg md:text-xl leading-relaxed relative z-10">
+            "My Teacher" is an enterprise-grade pedagogical tool designed to bridge the gap in Kannada-medium education. It transforms passive reading into an active, trilingual mastery experience for students aged 10-16.
+        </p>
+        <div class="mt-10 flex space-x-4 relative z-10">
+            <a href="#pedagogy" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/20 transition">Learn the Pedagogy</a>
+        </div>
+    </header>
+
+    <section id="pedagogy" class="py-32 px-6 md:px-24">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-indigo-400 text-sm font-bold uppercase tracking-widest mb-4">The Pedagogical Aspect</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-12">Beyond Verbatim Readout.</h3>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Most educational tools focus on translation. <strong class="text-white">My Teacher</strong> focuses on <strong class="text-indigo-400">Contextual Mastery</strong>. 
+                    </p>
+                    <p class="text-slate-400">
+                        For students in the 10-16 bracket, hearing a word is not enough. They need to understand the <em>soul</em> of the paragraph. Our engine combines verbatim reading with a teacher’s explanation, providing a personal tutor experience in every lesson.
+                    </p>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-indigo-500">
+                    <h4 class="text-xl font-bold mb-4">Core Principles</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Optical Clarity:</strong> Large-format Kannada script (24px) to prevent eye strain.</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>The 1-Second Gap:</strong> Intentional silence between reading and explaining to allow cognitive processing.</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Trilingual Bridge:</strong> Simultaneously learning in Kannada, Hindi, and English.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-32 px-6 md:px-24 bg-slate-900/40">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-5xl font-bold">The Student Experience</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-10 rounded-[2rem] feature-card">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <span class="text-2xl">🔊</span>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Sovereign Voice</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">Powered by Sarvam AI Bulbul v2. A high-fidelity narration engine that explains the nuances of literature with a teacher's warmth.</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2rem] feature-card">
+                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <span class="text-2xl">📒</span>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Alar Mastery Bank</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">10 core words per paragraph. Each word features contextual usage, trilingual meanings, and "make-sentence" guidance.</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2rem] feature-card">
+                <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <span class="text-2xl">📍</span>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Dynamic Navigator</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">A sidebar-driven paragraph roadmap. Students control the pace, moving forward only when the current concept is mastered.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="py-32 px-6 md:px-24">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-4xl font-bold mb-6">Architected on <br>Apple Silicon.</h2>
+                <p class="text-slate-400 mb-8">
+                    Developed and tested on modern Mac hardware to ensure the highest performance during audio rendering and AI processing.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 glass rounded-full text-xs font-bold text-indigo-400">Streamlit</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-bold text-indigo-400">Sarvam AI</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-bold text-indigo-400">Python 3.12</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-bold text-indigo-400">Fly.io</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-bold text-indigo-400">Let's Encrypt SSL</span>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full"></div>
+                <div class="glass p-8 rounded-3xl relative z-10">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <code class="text-indigo-300 text-sm">
+                        # Deployment Status: Success<br>
+                        # App: MyTeacherNew<br>
+                        # Region: BOM (Mumbai)<br>
+                        # Latency: Minimal for Vernacular Learners
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 px-6 md:px-24 text-center">
+        <p class="text-slate-500 text-sm mb-4">Developed by a Technical Professional | Abu Dhabi, UAE</p>
+        <p class="text-xs text-slate-600">Built with Tailwind CSS & Glassmorphism. Hosted on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
