@@ -7,113 +7,123 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #F8FAFC; }
-        .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .gradient-text { background: linear-gradient(135deg, #6366F1, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .feature-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-4px); transition: all 0.3s ease; }
+        /* Warm Enterprise Palette: Ivory Background, Deep Slate Text */
+        body { font-family: 'Inter', sans-serif; background-color: #FAF8F5; color: #1E293B; }
+        
+        /* High-Clarity Components */
+        .enterprise-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: 0.3s ease; }
+        .enterprise-card:hover { transform: translateY(-3px); border-color: #4F46E5; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .gradient-text { background: linear-gradient(135deg, #4F46E5, #9333EA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="selection:bg-indigo-500 selection:text-white">
+<body class="selection:bg-indigo-500 selection:text-white antialiased">
 
-    <nav class="fixed top-0 w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-white/5">
-        <div class="text-xl font-bold tracking-tighter uppercase text-indigo-400">My Teacher</div>
+    <nav class="fixed top-0 w-full z-50 bg-[#FAF8F5]/90 backdrop-blur-md py-4 px-8 flex justify-between items-center border-b border-slate-200">
+        <div class="text-xl font-bold tracking-tighter uppercase text-slate-900">My Teacher</div>
         <div class="space-x-8 text-sm font-medium hidden md:flex">
-            <a href="#pedagogy" class="hover:text-indigo-400 transition">Pedagogy</a>
-            <a href="#features" class="hover:text-indigo-400 transition">Features</a>
-            <a href="#mission" class="hover:text-indigo-400 transition">Mission</a>
-            <a href="mailto:your-email@example.com" class="text-indigo-400 border border-indigo-400/30 px-4 py-2 rounded-lg hover:bg-indigo-400/10 transition">Get in Touch</a>
+            <a href="#pedagogy" class="text-slate-700 hover:text-indigo-600 transition">Pedagogy</a>
+            <a href="#features" class="text-slate-700 hover:text-indigo-600 transition">Features</a>
+            <a href="#mission" class="text-slate-700 hover:text-indigo-600 transition">Mission</a>
+            <a href="mailto:your-email@example.com" class="text-indigo-600 border border-indigo-200 px-5 py-2 rounded-lg hover:bg-indigo-50 transition">Contact Project</a>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center relative overflow-hidden">
-        <div class="absolute w-96 h-96 bg-indigo-600/10 blur-[120px] rounded-full top-1/4 -left-20"></div>
-        <div class="absolute w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full bottom-1/4 -right-20"></div>
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center relative overflow-hidden bg-white">
+        <div class="absolute w-96 h-96 bg-yellow-400/10 blur-[120px] rounded-full top-1/4 -left-20"></div>
+        <div class="absolute w-96 h-96 bg-indigo-600/10 blur-[120px] rounded-full bottom-1/4 -right-20"></div>
         
-        <div class="mb-6 px-4 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest relative z-10">
+        <div class="mb-6 px-4 py-1 rounded-full border border-yellow-500/20 bg-yellow-500/10 text-yellow-700 text-xs font-bold uppercase tracking-widest relative z-10">
             Reimagining Vernacular Education
         </div>
-        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight relative z-10">
+        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight relative z-10 text-slate-950">
             The <span class="gradient-text">Vernacular</span> <br>Learning Assistant
         </h1>
-        <p class="max-w-3xl text-slate-400 text-lg md:text-xl leading-relaxed relative z-10">
+        <p class="max-w-3xl text-slate-600 text-lg md:text-xl leading-relaxed relative z-10">
             A premier pedagogical tool designed to bridge the gap in Kannada-medium education. 
             Transforming passive reading into an active, trilingual mastery experience for the next generation of learners.
         </p>
         <div class="mt-10 flex space-x-4 relative z-10">
-            <a href="#pedagogy" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/20 transition">Explore the Pedagogy</a>
+            <a href="#pedagogy" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/20 transition">Explore the Pedagogy</a>
         </div>
     </header>
 
     <section id="pedagogy" class="py-32 px-6 md:px-24">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-indigo-400 text-sm font-bold uppercase tracking-widest mb-4">The Pedagogical Aspect</h2>
-            <h3 class="text-4xl md:text-5xl font-bold mb-12">Beyond Verbatim Readout.</h3>
+            <h2 class="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-4">The Pedagogical Aspect</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-12 text-slate-950">Beyond Literal Translation.</h3>
             
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="space-y-6">
-                    <p class="text-slate-300 text-lg leading-relaxed">
-                        Educational technology often stops at translation. <strong class="text-white">My Teacher</strong> focuses on <strong class="text-indigo-400">Deep Contextual Mastery</strong>. 
+                    <p class="text-slate-800 text-lg leading-relaxed font-medium">
+                        Students must understand the <em>soul</em> of language.
                     </p>
-                    <p class="text-slate-400">
-                        Students aged 10-16 require more than literal definitions. They need to understand the <em>nuance</em> and <em>intent</em> of language. Our system layers verbatim reading with conversational explanations, mimicking the presence of a dedicated personal tutor.
+                    <p class="text-slate-600">
+                        Our method layers authentic, verbatim readings with a teacher’s warmth. Every lesson is backed by conversational context, examples, and detailed explanations that go beyond literal definitions, ensuring deep linguistic and conceptual comprehension.
                     </p>
                 </div>
-                <div class="glass p-8 rounded-3xl border-l-4 border-indigo-500">
-                    <h4 class="text-xl font-bold mb-4">Core Principles</h4>
-                    <ul class="space-y-4 text-sm text-slate-400">
-                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Optimal Visuals:</strong> 24px Noto Sans Kannada script to ensure zero eye strain during long study sessions.</li>
-                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Cognitive Breaks:</strong> Intentional 1-second pedagogical pauses to allow for information absorption.</li>
-                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Cross-Lingual Bridge:</strong> Simultaneous acquisition of Kannada, Hindi, and English vocabulary.</li>
+                <div class="enterprise-card p-10 border-l-4 border-yellow-500">
+                    <h4 class="text-xl font-bold mb-5 text-slate-950">Pedagogical Benchmarks</h4>
+                    <ul class="space-y-5 text-sm text-slate-700">
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Optimal Visual Clarity:</strong> 24px Noto Sans Kannada script ensures effortless character recognition.</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Cognitive Pauses:</strong> Intentional 1-second silence padding between verbatim reading and contextual explanation for information processing.</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2">▹</span> <strong>Trilingual Bridge:</strong> Systematic acquisition of Kannada, Hindi, and English vocabulary for a multi-language foundation.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-32 px-6 md:px-24 bg-slate-900/40">
+    <section id="features" class="py-32 px-6 md:px-24 bg-white border-y border-slate-200">
         <div class="text-center mb-20">
-            <h2 class="text-3xl md:text-5xl font-bold">The Student Experience</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-950">The Student Experience</h2>
+            <p class="text-slate-600 mt-3">Exhaustive mastery tools built on open-source foundations.</p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-10 rounded-[2rem] feature-card">
-                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6">
+            <div class="enterprise-card p-10 feature-card">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 border border-indigo-200">
                     <span class="text-2xl">🔊</span>
                 </div>
-                <h4 class="text-xl font-bold mb-3">Sovereign Voice</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">A high-fidelity narration engine that delivers verbatim text followed by warm, teacher-led explanations and real-world examples.</p>
+                <h4 class="text-xl font-bold mb-3 text-slate-950">Sovereign Voice</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Lesson narration in an authentic vernacular tone and diction, meticulously achieved by leveraging the <strong class="text-indigo-600">Sarvam Bulbul v2</strong> model for unprecedented linguistic fidelity.
+                </p>
             </div>
 
-            <div class="glass p-10 rounded-[2rem] feature-card">
-                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+            <div class="enterprise-card p-10 feature-card">
+                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 border border-yellow-200">
                     <span class="text-2xl">📒</span>
                 </div>
-                <h4 class="text-xl font-bold mb-3">Alar Mastery Bank</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">10 targeted words per paragraph. Features contextual usage in Kannada with side-by-side English and Hindi bridges.</p>
+                <h4 class="text-xl font-bold mb-3 text-slate-950">Alar Mastery Bank</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Access an exhaustive, curated dictionary. This deep word bank, leveraging the open-source <strong class="text-yellow-700">Alar</strong> project, provides students with a robust foundation for multi-lingual fluency.
+                </p>
             </div>
 
-            <div class="glass p-10 rounded-[2rem] feature-card">
-                <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6">
-                    <span class="text-2xl">📍</span>
+            <div class="enterprise-card p-10 feature-card">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 border border-purple-200">
+                    <span class="text-2xl">✍️</span>
                 </div>
-                <h4 class="text-xl font-bold mb-3">Dynamic Navigator</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">A modular paragraph roadmap designed to prevent cognitive overload. Students master one section before moving to the next.</p>
+                <h4 class="text-xl font-bold mb-3 text-slate-950">Multi-Lingual Mastery</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Students can trigger high-clarity pronunciation and hear meanings for key words in English and Hindi. Words are demonstrated within simple sentences to guide context-aware sentence construction.
+                </p>
             </div>
         </div>
     </section>
 
     <section id="mission" class="py-32 px-6 md:px-24">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8 italic">"Language should be a bridge, not a barrier."</h2>
-            <p class="text-slate-400 text-lg leading-relaxed">
+            <h2 class="text-4xl font-bold mb-8 italic text-slate-950">"Language should be a bridge, not a barrier."</h2>
+            <p class="text-slate-600 text-lg leading-relaxed">
                 The Vernacular Learning Assistant is a commitment to high-quality, accessible education. By leveraging modern AI and pedagogical best practices, we ensure that every student has access to the guidance they need, regardless of the language they speak at home.
             </p>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 px-6 md:px-24 text-center">
+    <footer class="py-12 border-t border-slate-200 px-6 md:px-24 text-center bg-white">
         <p class="text-slate-500 text-sm">Vernacular Learning Assistant | Pedagogical Research & Development</p>
-        <p class="text-xs text-slate-600 mt-2 italic">Built with a focus on student clarity and cross-lingual mastery.</p>
+        <p class="text-xs text-slate-600 mt-2 italic">A trilingual mastery platform focused on contextual comprehension.</p>
     </footer>
 
 </body>
