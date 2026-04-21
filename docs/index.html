@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Teacher | Student-Focused Learning</title>
+    <title>My Teacher | Understand at your pace</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --ivory: #FAF8F5; --slate: #1E293B; --indigo: #4F46E5; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--slate); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--slate); scroll-behavior: smooth; }
         .kannada { font-family: 'Noto Sans Kannada', sans-serif; font-size: 24px; }
-        
-        /* The "Subtle Shift" Styling */
-        .word { transition: color 0.3s ease; color: #94a3b8; /* Slate-400 */ }
+        .word { transition: color 0.3s ease; color: #94a3b8; cursor: default; }
         .word.active { color: var(--indigo); font-weight: 700; }
-        
         .enterprise-card { background: white; border: 1px solid #e2e8f0; border-radius: 24px; transition: all 0.3s ease; }
+        .enterprise-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="antialiased pb-32">
 
-    <nav class="p-8 flex justify-between items-center">
-        <div class="font-bold tracking-tighter uppercase">My Teacher</div>
-        <a href="https://myteachernew.fly.dev" class="text-indigo-600 font-semibold text-sm">Launch App</a>
+    <nav class="fixed top-0 w-full z-50 bg-[#FAF8F5]/80 backdrop-blur-md border-b border-slate-200 px-8 py-4 flex justify-between items-center">
+        <div class="font-bold tracking-tighter text-xl uppercase">My Teacher</div>
+        <div class="hidden md:flex space-x-8 text-sm font-semibold">
+            <a href="#how-it-works" class="hover:text-indigo-600 transition">How it Works</a>
+            <a href="https://myteachernew.fly.dev" class="text-indigo-600">Launch App</a>
+        </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 pt-12">
-        <header class="mb-16">
-            <h1 class="text-4xl font-bold mb-4">Understand at your pace.</h1>
-            <p class="text-slate-500">A conversational approach to vernacular mastery.</p>
-        </header>
+    <header class="pt-40 pb-20 px-6 text-center bg-white">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-6">
+                Native Vernacular Learning
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                Learn in the language <br><span class="text-indigo-600">you think in.</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+                A conversational mentor designed for clarity and context. Powered by India's native AI stack.
+            </p>
+        </div>
+    </header>
 
-        <div class="enterprise-card p-10 shadow-sm">
+    <section id="how-it-works" class="py-20 px-6">
+        <div class="max-w-3xl mx-auto enterprise-card p-10 shadow-sm border-indigo-100">
             <div class="mb-8">
-                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Current Lesson</span>
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Interactive Preview</span>
                 <div id="lesson-container" class="kannada mt-4 leading-relaxed">
                     <span class="word" data-start="0.5">ಜ್ಞಾನವೇ</span> 
                     <span class="word" data-start="1.2">ಶಕ್ತಿ.</span>
@@ -42,19 +52,56 @@
                     <span class="word" data-start="4.0">ಮುಖ್ಯ.</span>
                 </div>
             </div>
-
-            <button onclick="startLesson()" class="flex items-center gap-3 bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">
+            <button onclick="startLesson()" class="flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
                 <span>🎙️</span> Hear Teacher's Explanation
             </button>
         </div>
-    </main>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold">Context over definitions.</h2>
+                <p class="text-slate-600 text-lg">
+                    By integrating the <strong>Alar Word Bank</strong>, we move beyond simple translation. We provide the deep linguistic roots of every word, ensuring students grasp the "why" behind what they learn.
+                </p>
+            </div>
+            <div class="enterprise-card p-8 bg-[#FAF8F5] border-dashed border-2 border-indigo-100">
+                <p class="kannada text-2xl font-bold text-slate-900 mb-2">ಕೌಶಲ (Kaushala)</p>
+                <div class="p-4 bg-white rounded-xl border border-slate-200">
+                    <p class="text-xs text-indigo-600 font-bold mb-1 uppercase">Bridge to Context</p>
+                    <p class="text-slate-600 text-sm">"Think of 'Kaushala' as the special skill you use to solve a puzzle."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#FAF8F5]">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">A voice that understands you.</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-12">
+                We use <strong>Sarvam AI</strong> to create a warm, native-speaking teacher persona. It's built specifically for the nuances of Indian languages, making every lesson feel supportive.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">Native Diction 🗣️</div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">Paced Narration ⏳</div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">Cultural Warmth 🤝</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-32 px-6 text-center bg-white border-t border-slate-100">
+        <h3 class="text-4xl font-bold mb-8 text-slate-950">Understand at your pace.</h3>
+        <a href="https://myteachernew.fly.dev" class="inline-block px-12 py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-xl shadow-indigo-200 hover:scale-105 transition-transform">
+            See how much you can understand
+        </a>
+    </footer>
 
     <div id="audio-overlay" class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-6 translate-y-full transition-transform duration-500 shadow-2xl z-50">
         <div class="max-w-4xl mx-auto flex items-center gap-6">
             <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">🔊</div>
             <div class="flex-1">
-                <p class="text-xs font-bold text-indigo-600 uppercase">Conversational Mode</p>
-                <p class="text-sm font-medium">Teacher-Student Interaction in Progress...</p>
+                <p class="text-xs font-bold text-indigo-600 uppercase">Interactive Mentor Mode</p>
                 <div class="w-full bg-slate-100 h-1 mt-2 rounded-full overflow-hidden">
                     <div id="progress" class="bg-indigo-600 h-full w-0 transition-all"></div>
                 </div>
@@ -84,16 +131,11 @@
 
         audio.ontimeupdate = () => {
             const currentTime = audio.currentTime;
-            
-            // Update Progress Bar
             progress.style.width = (currentTime / audio.duration * 100) + "%";
-
-            // Word-by-Word Highlight Logic
             words.forEach((word, index) => {
                 const startTime = parseFloat(word.dataset.start);
                 const nextWord = words[index + 1];
                 const endTime = nextWord ? parseFloat(nextWord.dataset.start) : audio.duration;
-
                 if (currentTime >= startTime && currentTime < endTime) {
                     word.classList.add('active');
                 } else {
